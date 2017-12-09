@@ -25,8 +25,8 @@ console.log('\t :: Express :: Listening on port ' + gameport );
 //By default, we forward the / path to index.html automatically.
 app.get( '/', function( req, res )
 {
-	console.log('trying to load %s', __dirname + '/index.html');
-        res.sendfile( '/index.html' , { root:__dirname });
+	console.log('trying to load %s', __dirname + '/login.html');
+        res.sendfile( '/login.html' , { root:__dirname });
 });
 
 //This handler will listen for requests on /*, any file from the root of our server.
