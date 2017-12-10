@@ -39,7 +39,7 @@ log: function()
 		console.log.apply(this,arguments);
 	}
 },
-
+//right here send login
 onMessage: function(client,message) 
 {
 	if(this.fake_latency && message.split('.')[0].substr(0,1) == 'i') 
@@ -87,6 +87,12 @@ _onMessage: function(client,message)
 	else if (message_type == 'l') 
 	{    //A client is asking for lag simulation
             	this.fake_latency = parseFloat(message_parts[1]);
+        }
+	else if (message_type == 'z') 
+	{    //A client is trying to login
+            	//this.fake_latency = parseFloat(message_parts[1]);
+		//console.log('trying to login: ' + c + ' overtaking');
+		console.log('trying to login: ');
         }
 },
 

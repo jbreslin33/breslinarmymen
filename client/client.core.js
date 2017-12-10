@@ -230,7 +230,18 @@ client_handle_input: function()
             	input.push('u');
         } //up
 
-    	if(input.length) 
+       	if( this.keyboard.pressed('Z'))
+        {
+                //y_dir = -1;
+                input.push('z');
+        } //login
+
+	if (input[0] == 'z')
+	{
+		var server_packet = 'z'; 
+        	this.socket.send(  server_packet  );
+	}
+    	else if(input.length) 
 	{
 
         	//Update what sequence we are on now
