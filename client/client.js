@@ -53,6 +53,13 @@ window.onload = function()
 	//Set the draw style for the font
 	clientCore.ctx.font = '11px "Helvetica"';
 
+
+	//try making a button
+	var button = document.createElement("button");
+	button.innerHTML = "Do Something";
+var body = document.getElementsByTagName("body")[0];
+body.appendChild(button);
+
 	//Finally, start the loop
 	clientCore.update( new Date().getTime() );
 }; 
