@@ -43,11 +43,6 @@ const pool = new Pool({
   port: 5432,
 })
 
-pool.query('SELECT NOW()', (err, res) => {
-  console.log(err, res)
-  pool.end()
-})
-
 const client = new Client({
   user: 'postgres',
   host: 'localhost',
@@ -57,25 +52,14 @@ const client = new Client({
 })
 client.connect()
 
-client.query('SELECT NOW()', (err, res) => {
-  console.log(err, res)
-  client.end()
+const result = client.query({
+  rowMode: 'array',
+  text: 'SELECT username, password from users;'
 })
-/*		
-	this.log('trying to insert');
-	//var conString = "pg://admin:guest@localhost:5432/Employees";
-	var conString = "pg://postgres:mibesfat@localhost/jamesanthonybreslin";
-	var client = new pg.Client(conString);
-	//client.connect();
-	await client.connect();
-	var res = await client.query("SELECT username FROM users");
-	res.rows.forEach(row=>
-	{
-    		console.log(row);
-	});
-	await client.end();
-});
-*/
+//console.log(result.fields[0].name) // one
+console.log(result.rows[0]) // [1, 2]
+client.end()
+
 	
 },
 
