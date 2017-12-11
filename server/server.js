@@ -6,6 +6,7 @@
     MIT Licensed.
 */
 var ServerCore = require('./server.core');
+var pg       = require('pg');
 
 var Server = new Class(
 {
@@ -30,6 +31,52 @@ initialize: function()
     	this.messages = [];
 
 	this.createGame();
+
+	//try db connection
+const { Pool, Client } = require('pg')
+
+const pool = new Pool({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'jamesanthonybreslin',
+  password: 'mibesfat',
+  port: 5432,
+})
+
+pool.query('SELECT NOW()', (err, res) => {
+  console.log(err, res)
+  pool.end()
+})
+
+const client = new Client({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'jamesanthonybreslin',
+  password: 'mibesfat',
+  port: 5432,
+})
+client.connect()
+
+client.query('SELECT NOW()', (err, res) => {
+  console.log(err, res)
+  client.end()
+})
+/*		
+	this.log('trying to insert');
+	//var conString = "pg://admin:guest@localhost:5432/Employees";
+	var conString = "pg://postgres:mibesfat@localhost/jamesanthonybreslin";
+	var client = new pg.Client(conString);
+	//client.connect();
+	await client.connect();
+	var res = await client.query("SELECT username FROM users");
+	res.rows.forEach(row=>
+	{
+    		console.log(row);
+	});
+	await client.end();
+});
+*/
+	
 },
 
 log: function() 
