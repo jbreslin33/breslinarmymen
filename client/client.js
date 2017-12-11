@@ -38,6 +38,10 @@ window.onload = function()
 
 	}());
 
+	//login screen	
+	clientLogin = new ClientLogin();
+
+	//core
 	clientCore = new ClientCore();
 
 	//Fetch the viewport
@@ -52,24 +56,6 @@ window.onload = function()
 
 	//Set the draw style for the font
 	clientCore.ctx.font = '11px "Helvetica"';
-
-	//get body
-	var body = document.getElementsByTagName("body")[0];
-
-	//username
-	var usernameInput = document.createElement("input");
-	usernameInput.innerHTML = "";
-	body.appendChild(usernameInput);
-	
-	//password
-	var passwordInput = document.createElement("input");
-	passwordInput.innerHTML = "";
-	body.appendChild(passwordInput);
-
-	//submit
-	var button = document.createElement("button");
-	button.innerHTML = "Login";
-	body.appendChild(button);
 
 	//Finally, start the loop
 	clientCore.update( new Date().getTime() );
