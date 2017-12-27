@@ -33,16 +33,19 @@ initialize: function()
 	this.createGame();
 
 var pgp = require('pg-promise')(/*options*/)
-//var db = pgp('postgres://username:password@host:port/database')
 var db = pgp('postgres://postgres:mibesfat@localhost:5432/jamesanthonybreslin')
 
-db.one('SELECT $1 AS value', 123)
-  .then(function (data) {
-    console.log('DATA:', data.value)
-  })
-  .catch(function (error) {
-    console.log('ERROR:', error)
-  })
+db.any("select * from users where username = 'v1923'")
+    .then(data => {
+	JSON.stringify(data);
+	console.log('password yo:' + data[0].password);
+	//console.log('s:' + s);
+	//console.log('password yo:' + s["password"]);
+	//console.log('password yo:' + s.password);
+	//console.log('stringifyied:' + JSON.stringify(data));
+        //console.log('DATA:', data); // print data;
+
+    })
 },
 
 log: function() 
