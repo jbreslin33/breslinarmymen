@@ -6,7 +6,6 @@
     MIT Licensed.
 */
 var ServerCore = require('./server.core');
-var pg       = require('pg');
 
 var Server = new Class(
 {
@@ -31,36 +30,6 @@ initialize: function()
     	this.messages = [];
 
 	this.createGame();
-
-	//try db connection
-const { Pool, Client } = require('pg')
-
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'jamesanthonybreslin',
-  password: 'mibesfat',
-  port: 5432,
-})
-
-const client = new Client({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'jamesanthonybreslin',
-  password: 'mibesfat',
-  port: 5432,
-})
-client.connect()
-
-const result = client.query({
-  rowMode: 'array',
-  text: 'SELECT username, password from users;'
-})
-//console.log(result.fields[0].name) // one
-console.log(result.rows[0]) // [1, 2]
-client.end()
-
-	
 },
 
 log: function() 
