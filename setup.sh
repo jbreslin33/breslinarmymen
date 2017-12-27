@@ -6,7 +6,6 @@ sudo apt-get install -y nodejs
 sudo npm install --save express@4.15.2
 sudo npm install --save socket.io
 
-sudo npm i pg
 sudo npm install express --save
 sudo npm install express-form --save
 sudo npm install body-parser --save
