@@ -39,11 +39,6 @@ db.any("select * from users where username = 'v1923'")
     .then(data => {
 	JSON.stringify(data);
 	console.log('password yo:' + data[0].password);
-	//console.log('s:' + s);
-	//console.log('password yo:' + s["password"]);
-	//console.log('password yo:' + s.password);
-	//console.log('stringifyied:' + JSON.stringify(data));
-        //console.log('DATA:', data); // print data;
 
     })
 },
